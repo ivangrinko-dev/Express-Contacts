@@ -7,4 +7,12 @@ async function getAlldataDb() {
   return result;
 }
 
-module.exports = { getAlldataDb };
+async function getDataByIdDb(id) {
+  const client = await pool.connect();
+  const sql = 'SELECT * FROM users_info where id = $1';
+  const result = (await client.query(sql, [id])).rows;
+  return result;
+}
+
+
+module.exports = { getAlldataDb, getDataByIdDb };

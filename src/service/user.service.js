@@ -1,4 +1,4 @@
-const { getAlldataDb } = require(`../repository/user.reposityry`);
+const { getAlldataDb, getDataByIdDb } = require(`../repository/user.reposityry`);
 
 async function getAlldata() {
   const data = await getAlldataDb();
@@ -6,4 +6,12 @@ async function getAlldata() {
   return data;
 }
 
-module.exports = { getAlldata };
+async function getDataById(id) {
+  const data = await getDataByIdDb(id);
+  if (id <= 0) throw new Error(`id  должен быть больше нуля `);
+  return data;
+}
+
+
+
+module.exports = { getAlldata, getDataById };
