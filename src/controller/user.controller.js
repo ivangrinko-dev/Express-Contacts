@@ -51,5 +51,14 @@ route.delete(`/:id`, async (req, res) => {
     res.send(error.message);
   }
 });
+// route.delete(`/:id`, async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const data = await deleteData(id);
+//     res.send(data);
+//   } catch (error) {
+//     res.send(error.message);
+//   }
+// });
 
 module.exports = route;
