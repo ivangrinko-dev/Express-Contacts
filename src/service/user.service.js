@@ -1,4 +1,4 @@
-const { getAlldataDb, getDataByIdDb, createDataDb, updateDataDb, deleteDataDb } = require(`../repository/user.reposityry`);
+const { getAlldataDb, getDataByIdDb, createDataDb, updateDataDb, deleteDataDb, patchDataDb } = require(`../repository/user.reposityry`);
 
 async function getAlldata() {
   const data = await getAlldataDb();
@@ -30,4 +30,9 @@ async function deleteData(id) {
   return data;
 }
 
-module.exports = { getAlldata, getDataById, createData, updateData, deleteData };
+async function patchData(id, clientData) {
+  const data = await patchDataDb(id, clientData);
+  return data;
+}
+
+module.exports = { getAlldata, getDataById, createData, updateData, deleteData, patchData };
